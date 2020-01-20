@@ -25,13 +25,16 @@ public class Queen4{
 			System.out.println();
 		}
 	}
-	private static boolean col(int c){
-		if(c>3)
+	private static void reset(){
+		arr = new boolean[4][4];
+	}
+	private static boolean col(int c, int count){
+		if(count>=4)
 			return true;
 		for(int i=0;i<4;i++){
 			if(check(i,c)){
 				arr[i][c] = true;
-				if(col(c+1))
+				if(col(((c+1)>3?(c-3):(c+1)), count+1))
 					return true;
 				else
 					arr[i][c] = false;
@@ -41,7 +44,10 @@ public class Queen4{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(col(new Scanner(System.in).nextInt()));
-		show();
+		for(int i=0;i<2;i++){
+			col(i,0);
+			show();
+			reset();
+		}
 	}
 }
