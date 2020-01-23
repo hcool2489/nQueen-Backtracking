@@ -12,7 +12,7 @@ public class Queen4{
 		}
 		return true;
 	}
-	private static void show(){
+	private static void showBoard(){
 		System.out.println("\n   0 1 2 3 \n  ._______. ");
 		for(int i=0;i<4;i++){
 			System.out.print(i + " |");
@@ -46,7 +46,7 @@ public class Queen4{
 	public static void main(String[] args){
 		for(int i=0;i<2;i++){
 			col(i,0);
-			show();
+			showBoard();
 			reset();
 		}
 	}
